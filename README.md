@@ -93,7 +93,7 @@ IN location_id_in INT
 
 )
 BEGIN
-SELECT SUM(invoice_lines.value), invoice_headers.status
+SELECT SUM(invoice_lines.value) AS value, invoice_headers.status
 FROM invoice_headers, invoice_lines 
 WHERE invoice_headers.location_id = location_id_in AND invoice_lines.invoice_header_id = invoice_headers.id            
 GROUP BY status;
